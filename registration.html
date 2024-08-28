@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <header>Registration Form</header>
+        <form action="#" class="form" onsubmit="return validateForm()">
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter full name" required />
+                <span class="error" id="fullNameError"></span>
+            </div>
+
+            <div class="input-box">
+                <label>Email Address</label>
+                <input type="text" id="email" placeholder="Enter email address" required />
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Phone Number</label>
+                    <input type="number" placeholder="Enter phone number" required />
+                </div>
+                <div class="input-box">
+                    <label>Birth Date</label>
+                    <input type="date" placeholder="Enter birth date" required />
+                </div>
+            </div>
+
+            <div class="gender-box">
+                <h3>Gender</h3>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input type="radio" id="check-male" name="gender" checked />
+                        <label for="check-male">Male</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-female" name="gender" />
+                        <label for="check-female">Female</label>
+                    </div>
+                    <div class="gender">
+                        <input type="radio" id="check-other" name="gender" />
+                        <label for="check-other">Other</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-box address">
+                <label>Address</label>
+                <input type="text" placeholder="Enter street address" required />
+            </div>
+
+            <div class="input-box">
+                <input type="submit" value="Register" />
+            </div>
+            <p>Already user?<a href="login.html">login here</a></p>
+        </form>
+    </section>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Full Name Validation
+            const fullName = document.getElementById('fullName').value;
+            const fullNameError = document.getElementById('fullNameError');
+            const fullNamePattern = /^[a-zA-Z\s]+$/;
+
+            if (!fullNamePattern.test(fullName)) {
+                fullNameError.textContent = 'Please enter a valid full name (letters and spaces only).';
+                isValid = false;
+            } else {
+                fullNameError.textContent = '';
+            }
+
+            // Email Validation
+            const email = document.getElementById('email').value;
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailPattern.test(email)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

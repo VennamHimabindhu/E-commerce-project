@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #da9e9e;
+        }
+        h1{
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .book-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .book-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(25% - 40px);
+            box-sizing: border-box;
+        }
+
+        .book-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .book-title {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .book-author {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .book-price {
+            font-size: 1.1em;
+            color: #b12704;
+            margin-bottom: 10px;
+        }
+
+        .book-description {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .book-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .book-buttons button {
+            padding: 8px 12px;
+            font-size: 0.9em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .add-to-cart {
+            background-color: #fbbc5e;
+            color: white;
+        }
+
+        .buy-now {
+            background-color: #964040;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .book-item {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Book Store</h1>
+    <div class="book-grid">
+        <!-- Book 1 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\9780307472250.jpg" alt="Book 1 Cover">
+            </div>
+            <h2 class="book-title">Subliminal: How Your Unconscious Mind Rules Your Behavior </h2>
+            <p class="book-author">By Leonard Mlodinow</p>
+            <p class="book-price">Rs.299/-</p>
+            <p class="book-description">NATIONAL BESTSELLER • From the bestselling author of The Drunkard’s Walk, a startling, eye-opening examination of how the unconscious mind shapes our experience of the world.
+                .</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\9781594632327.jpg" alt="Book 2 Cover">
+            </div>
+            <h2 class="book-title">A Teaspoon of Earth and Sea: A Novel (Paperback)
+            </h2>
+            <p class="book-author">By Dina Nayeri</p>
+            <p class="book-price">Rs.399/-</p>
+            <p class="book-description">From the author of Refuge, a magical novel about a young Iranian woman lifted from grief by her powerful imagination and love of Western culture..</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\9780763676209.jpg" alt="Book 3 Cover">
+            </div>
+            <h2 class="book-title">More Than This (Paperback)</h2>
+            <p class="book-author"> By Patrick Ness</p>
+            <p class="book-price">Rs.400/-</p>
+            <p class="book-description">Books are often described as ‘mind-blowing,’ but this is one of the few books in which, while reading it, I have exclaimed aloud, ‘Oh. My. God.’ on multiple occasions. I won’t tell you anything else about it..</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\9780143107194.jpg" alt="Book 4 Cover">
+            </div>
+            <h2 class="book-title">The Divine Comedy: Inferno, Purgatorio, Paradiso</h2>
+            <p class="book-author">By Dante Alighieri, Robin Kirkpatrick</p>
+            <p class="book-price">Rs.399/-</p>
+            <p class="book-description">A stunning 3-in-1 deluxe edition of one of the great works of Western literature
+                An epic masterpiece and a foundational work of the Western canon, The Divine Comedy describes Dante's descent into Hell with Virgil as his guide.</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 5 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\9780679722762.jpg" alt="Book 5 Cover">
+            </div>
+            <h2 class="book-title">Ulysses (Vintage International)</h2>
+            <p class="book-author">By James Joyce </p>
+            <p class="book-price">Rs.199/-</p>
+            <p class="book-description">This revised volume of the acclaimed novel follows the complete unabridged text as corrected in 1961.
+                Set entirely on one day, 16 June 1904, Ulysses follows Leopold Bloom and Stephen Daedalus .</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 6 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\bravenewworld.jpg" alt="Book 6 Cover">
+            </div>
+            <h2 class="book-title">Brave New World</h2>
+            <p class="book-author"> By Leslie Holland</p>
+            <p class="book-price">Rs.209/-</p>
+            <p class="book-description">There are several categories of Brave New World covers: pill covers, machine part covers, clone covers, and earth covers—many of which visually reference the original by Leslie Holland.</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 7 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\lf-1.jpg" alt="Book 7 Cover">
+            </div>
+            <h2 class="book-title"> Psycho</h2>
+            <p class="book-author">By Tony Palladino</p>
+            <p class="book-price">Rs.255/-</p>
+            <p class="book-description">Bloch’s typographical design for Bloch’s novel was so successful that Alfred Hitchcock purchased the rights to it for the film’s promotion; it also influenced Saul Bass’ opening credit sequence.</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 8 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\58763686.jpg" alt="Book 8 Cover">
+            </div>
+            <h2 class="book-title">Haunting Adeline</h2>
+            <p class="book-author">By H.D. Carlton</p>
+            <p class="book-price">Rs.299/-</p>
+            <p class="book-description">Haunting Adeline is a dark romance novel by H.D. Carlton about a young woman named Adeline who moves into a Victorian house after a series of tragedies.</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 9 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\img-gaetano-1_142151851246.jpg" alt="Book 9 Cover">
+            </div>
+            <h2 class="book-title"> Atlas Shrugged</h2>
+            <p class="book-author">By Ayn Rand</p>
+            <p class="book-price">Rs.499/-</p>
+            <p class="book-description">Peopled by larger-than-life heroes and villains, charged with towering questions of good and evil, Atlas Shrugged is Ayn Rand's magnum opus: a philosophical revolution told in the form of an action thriller--nominated as one of America's best-loved novels by PBS's The Great American Read..</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Book 10 -->
+        <div class="book-item">
+            <div class="book-image">
+                <img src="C:\Users\Himabindu\Downloads\71Xk2BtZp0L._AC_UF1000,1000_QL80_.jpg"alt="Book 10 Cover">
+            </div>
+            <h2 class="book-title">The World as Will and Representation</h2>
+            <p class="book-author">By Arthur Schopenhauer</p>
+            <p class="book-price">Rs.400/-</p>
+            <p class="book-description">Arthur Schopenhauer's Die Welt als Wille und Vorstellung is one of the most important philosophical works of the nineteenth century, the basic statement of one important stream of post-Kantian thought.</p>
+            <div class="book-buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+                </div>
+                </div>
+                </div>
+            </body>
+            </html>
