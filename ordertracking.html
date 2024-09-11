@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .order-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-container h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #7f4141;
+            padding-bottom: 10px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .order-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .order-item img {
+            width: 100px;
+            height: 150px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .order-item-info {
+            flex: 1;
+            color: #555;
+        }
+
+        .order-item h3 {
+            font-size: 1.4rem;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .order-item p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .order-item p strong {
+            color: #7f4141;
+        }
+
+        /* Home button styling */
+        .home-button {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #7f4141;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #653232;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .order-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .order-item img {
+                margin-bottom: 15px;
+                width: 80px;
+                height: 120px;
+            }
+
+            .order-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .order-item p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h1>Order Tracking</h1>
+        <div id="orderItems"></div>
+
+        <!-- Go to Home Button -->
+        <a href="home page.html" class="home-button">Go to Home</a>
+    </div>
+
+    <script>
+        // Cart items fetched dynamically from localStorage or wherever the cart is managed
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Example tracking data for products
+        const orderTrackingDetails = {
+            "Subliminal": { shippingStatus: "Shipped", estimatedDelivery: "September 10, 2024", trackingNumber: "AB123456789IN" },
+            "A Teaspoon of Earth and Sea": { shippingStatus: "Shipped", estimatedDelivery: "September 11, 2024", trackingNumber: "AB987654321IN" },
+            "More Than This (Paperback)": { shippingStatus: "Pending", estimatedDelivery: "September 15, 2024", trackingNumber: "Pending" },
+            "The Divine Comedy": { shippingStatus: "In Transit", estimatedDelivery: "September 13, 2024", trackingNumber: "AB564738291IN" },
+            "Ulysses": { shippingStatus: "Shipped", estimatedDelivery: "September 11, 2024", trackingNumber: "AB482739106IN" },
+            "Brave New World": { shippingStatus: "Pending", estimatedDelivery: "September 16, 2024", trackingNumber: "Pending" },
+            "Psycho": { shippingStatus: "Shipped", estimatedDelivery: "September 12, 2024", trackingNumber: "AB345627891IN" },
+            "Haunting Adeline": { shippingStatus: "In Transit", estimatedDelivery: "September 14, 2024", trackingNumber: "AB123459876IN" },
+            "Atlas Shrugged": { shippingStatus: "Shipped", estimatedDelivery: "September 10, 2024", trackingNumber: "AB987651234IN" },
+            "The World as Will and Representation": { shippingStatus: "In Transit", estimatedDelivery: "September 13, 2024", trackingNumber: "AB657483920IN" }
+        };
+
+        function displayOrderItems() {
+            let orderContainer = document.getElementById('orderItems');
+            orderContainer.innerHTML = '';
+
+            // Display each cart item and its tracking information
+            cartItems.forEach(item => {
+                // Get tracking information based on the title
+                const trackingInfo = orderTrackingDetails[item.title] || { shippingStatus: "N/A", estimatedDelivery: "N/A", trackingNumber: "N/A" };
+                
+                // Construct HTML for each order item
+                orderContainer.innerHTML += `
+                    <div class="order-item">
+                        <img src="${item.image}" alt="${item.title} Cover">
+                        <div class="order-item-info">
+                            <h3>${item.title}</h3>
+                            <p>Price: Rs.${item.price}/-</p>
+                            <p><strong>Shipping Status:</strong> ${trackingInfo.shippingStatus}</p>
+                            <p><strong>Estimated Delivery:</strong> ${trackingInfo.estimatedDelivery}</p>
+                            <p><strong>Tracking Number:</strong> ${trackingInfo.trackingNumber}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Call the function to display order items
+        displayOrderItems();
+    </script>
+</body>
+</html>
